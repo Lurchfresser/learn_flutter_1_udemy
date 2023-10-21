@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter_1/presentation/widget_examples/widgets/buttons_example.dart';
 import 'package:learn_flutter_1/presentation/widget_examples/widgets/question_container.dart';
 
 class RotatebleQuestionScrollView extends StatelessWidget {
@@ -15,6 +16,7 @@ class RotatebleQuestionScrollView extends StatelessWidget {
           QuestionContainer(
             question: question,
           ),
+          const ButtonExample(),
       ];
       final Flex child;
       final Axis scrollDirection;
