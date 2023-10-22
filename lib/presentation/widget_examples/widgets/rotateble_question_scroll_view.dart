@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter_1/presentation/components/custom_button.dart';
 import 'package:learn_flutter_1/presentation/widget_examples/widgets/buttons_example.dart';
 import 'package:learn_flutter_1/presentation/widget_examples/widgets/question_container.dart';
 
@@ -17,6 +18,11 @@ class RotatebleQuestionScrollView extends StatelessWidget {
             question: question,
           ),
           const ButtonExample(),
+          CustomButton(
+            onTap: () {
+              print("tapped");
+            },
+          ),
       ];
       final Flex child;
       final Axis scrollDirection;
