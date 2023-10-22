@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter_1/presentation/widget_examples/widgets/question_header.dart';
+import 'package:learn_flutter_1/presentation/quiz/widgets/question_header.dart';
 
 class QuestionContainer extends StatelessWidget {
   final Question question;
@@ -8,25 +8,22 @@ class QuestionContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: Container(
-        width: 200,
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(10)),
-          color: question.questionCategorie.color,
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Column(
-            children: [
-              QuestionHeader(question: question),
-              const SizedBox(
-                height: 10,
-              ),
-              Text(question.questionText),
-            ],
-          ),
+    return Container(
+      width: 200,
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(10)),
+        color: question.questionCategorie.color,
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          children: [
+            QuestionHeader(question: question),
+            const SizedBox(
+              height: 10,
+            ),
+            Text(question.questionText),
+          ],
         ),
       ),
     );

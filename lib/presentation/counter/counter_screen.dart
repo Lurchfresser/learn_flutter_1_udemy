@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter_1/presentation/components/floating_add_and_remove.dart';
 
 class CounterScreen extends StatefulWidget {
   const CounterScreen({super.key});
@@ -17,34 +18,21 @@ class _CounterScreenState extends State<CounterScreen> {
       body: Center(
           child: Text(
         "Count: $_counter",
-        style: TextStyle(fontSize: 30, color: _counter > 0 ? Colors.green : Colors.red),
+        style: TextStyle(
+            fontSize: 30, color: _counter > 0 ? Colors.green : Colors.red),
       )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            FloatingActionButton(
-              onPressed: () {
-                setState(() {
-                  _counter++;
-                });
-              },
-              backgroundColor: Colors.green,
-              child: const Icon(Icons.add),
-            ),
-            FloatingActionButton(
-              onPressed: () {
-                setState(() {
-                  _counter--;
-                });
-              },
-              backgroundColor: Colors.red,
-              child: const Icon(Icons.remove),
-            ),
-          ],
-        ),
+      floatingActionButton: FloatingAddAndRemove(
+        add: () => {
+          setState(() {
+            _counter++;
+          })	
+        },
+        remove: () => {
+          setState(() {
+            _counter--;
+          })
+        },
       ),
     );
   }

@@ -1,52 +1,55 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
-import 'package:learn_flutter_1/presentation/components/custom_button.dart';
-import 'package:learn_flutter_1/presentation/components/switch_example.dart';
-import 'package:learn_flutter_1/presentation/widget_examples/widgets/buttons_example.dart';
+import 'package:learn_flutter_1/presentation/components/floating_add_and_remove.dart';
 import 'package:learn_flutter_1/presentation/quiz/widgets/question_container.dart';
 
-class RotatebleQuestionScrollView extends StatelessWidget {
-  const RotatebleQuestionScrollView({
-    super.key,
-  });
+class QuizScreen extends StatefulWidget {
+  QuizScreen({super.key});
 
-    @override
+  @override
+  State<QuizScreen> createState() => _QuizScreenState();
+}
+
+class _QuizScreenState extends State<QuizScreen> {
+  List<Question> displayedQuestions = [];
+
+  @override
   Widget build(BuildContext context) {
-    return Builder(builder: (context) {
-      questions.shuffle();
-      var children = [
-        for (var question in questions)
-          QuestionContainer(
-            question: question,
-          ),
-          const ButtonExample(),
-          CustomButton(
-            onTap: () {
-              print("tapped");
-            },
-          ),
-          const SwitchExample(),
-      ];
-      final Flex child;
-      final Axis scrollDirection;
-      if (MediaQuery.of(context).size.width <
-          MediaQuery.of(context).size.height) {
-        child = Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: children);
-        scrollDirection = Axis.vertical;
-      } else {
-        scrollDirection = Axis.horizontal;
-        child = Row(
-          children: children,
-        );
-      }
-      return SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        scrollDirection: scrollDirection,
-        child: child,
-      );
-    });
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Quiz"),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingAddAndRemove(add: () {
+        setState(() {
+          if (questions.isEmpty) return;
+          Random random = Random();
+          int index =
+              questions.length == 1 ? 0 : random.nextInt(questions.length - 1);
+          displayedQuestions.add(questions.removeAt(index));
+        });
+      }, remove: () {
+        setState(() {
+          if (displayedQuestions.isEmpty) return;
+          int index = displayedQuestions.length - 1;
+          questions.add(displayedQuestions.removeAt(index));
+        });
+      }),
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: ListView.separated(
+            physics: const BouncingScrollPhysics(),
+            itemCount: displayedQuestions.length,
+            itemBuilder: (BuildContext context, int index) => QuestionContainer(
+                  question: displayedQuestions[index],
+                ),
+            separatorBuilder: (BuildContext context, int index) =>
+                const Divider(
+                  height: 10,
+                )),
+      ),
+    );
   }
 }
 
