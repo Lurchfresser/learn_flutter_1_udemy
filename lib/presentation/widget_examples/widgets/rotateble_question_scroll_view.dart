@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter_1/presentation/components/custom_button.dart';
+import 'package:learn_flutter_1/presentation/components/switch_example.dart';
 import 'package:learn_flutter_1/presentation/widget_examples/widgets/buttons_example.dart';
 import 'package:learn_flutter_1/presentation/widget_examples/widgets/question_container.dart';
 
@@ -8,7 +9,7 @@ class RotatebleQuestionScrollView extends StatelessWidget {
     super.key,
   });
 
-  @override
+    @override
   Widget build(BuildContext context) {
     return Builder(builder: (context) {
       questions.shuffle();
@@ -23,6 +24,7 @@ class RotatebleQuestionScrollView extends StatelessWidget {
               print("tapped");
             },
           ),
+          const SwitchExample(),
       ];
       final Flex child;
       final Axis scrollDirection;
