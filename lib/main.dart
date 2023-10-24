@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter_1/presentation/quiz/quiz_screen.dart';
+import 'package:learn_flutter_1/bottom_navigation.dart';
 
 void main() {
   runApp(const MainApp());
@@ -15,6 +15,6 @@ class MainApp extends StatelessWidget {
             appBarTheme: const AppBarTheme(
           backgroundColor: Colors.amber,
         )),
-        home: QuizScreen());
+        home: const RootBottomNavigation());
   }
 }

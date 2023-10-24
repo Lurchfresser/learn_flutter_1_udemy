@@ -5,7 +5,7 @@ import 'package:learn_flutter_1/presentation/components/floating_add_and_remove.
 import 'package:learn_flutter_1/presentation/quiz/widgets/question_container.dart';
 
 class QuizScreen extends StatefulWidget {
-  QuizScreen({super.key});
+  const QuizScreen({super.key});
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();
