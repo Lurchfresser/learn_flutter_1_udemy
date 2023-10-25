@@ -14,6 +14,7 @@ class FloatingAddAndRemove extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             FloatingActionButton(
+              heroTag: null,
               onPressed: () {
                 add();
               },
@@ -21,6 +22,7 @@ class FloatingAddAndRemove extends StatelessWidget {
               child: const Icon(Icons.add),
             ),
             FloatingActionButton(
+              heroTag: null,
               onPressed: () {
                 remove();
               },

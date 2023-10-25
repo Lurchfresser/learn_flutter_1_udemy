@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter_1/presentation/components/custom_button.dart';
 import 'package:learn_flutter_1/presentation/components/switch_example.dart';
+import 'package:learn_flutter_1/presentation/navigation_example_screens/screen_one.dart';
+import 'package:learn_flutter_1/presentation/navigation_example_screens/screen_two.dart';
 import 'package:learn_flutter_1/presentation/widget_examples/widgets/buttons_example.dart';
 import 'package:learn_flutter_1/presentation/quiz/widgets/question_container.dart';
 
@@ -9,7 +11,7 @@ class RotatebleQuestionScrollView extends StatelessWidget {
     super.key,
   });
 
-    @override
+  @override
   Widget build(BuildContext context) {
     return Builder(builder: (context) {
       questions.shuffle();
@@ -18,13 +20,19 @@ class RotatebleQuestionScrollView extends StatelessWidget {
           QuestionContainer(
             question: question,
           ),
-          const ButtonExample(),
-          CustomButton(
-            onTap: () {
-              print("tapped");
-            },
-          ),
-          const SwitchExample(),
+        ButtonExample(
+          onPressed: (){
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const ScreenTwo()));
+          },
+        ),
+        CustomButton(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const ScreenOne()));
+          },
+        ),
+        const SwitchExample(),
       ];
       final Flex child;
       final Axis scrollDirection;

@@ -9,6 +9,7 @@ class WidgetExamplesScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: Builder(builder: (context) {
         return FloatingActionButton(
+          heroTag: "ExampleScreen",
           onPressed: () {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(

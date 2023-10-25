@@ -15,6 +15,6 @@ class MainApp extends StatelessWidget {
             appBarTheme: const AppBarTheme(
           backgroundColor: Colors.amber,
         )),
-        home: const RootBottomNavigation());
+        home: const SafeArea(child: RootBottomNavigation()));
   }
 }

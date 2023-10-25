@@ -21,7 +21,8 @@ class _QuizScreenState extends State<QuizScreen> {
         title: const Text("Quiz"),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingAddAndRemove(add: () {
+      floatingActionButton: FloatingAddAndRemove(
+        add: () {
         setState(() {
           if (questions.isEmpty) return;
           Random random = Random();
