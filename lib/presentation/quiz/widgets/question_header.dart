@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter_1/presentation/quiz/classes/quiz_objects.dart';
 
-import 'question_container.dart';
 
 class QuestionHeader extends StatelessWidget {
   const QuestionHeader({
@@ -23,10 +23,7 @@ class QuestionHeader extends StatelessWidget {
           ),
           Text(
             question.questionCategorie.categorieName,
-            style: const TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
+            style: Theme.of(context).textTheme.displayMedium,
           ),
           CircleAvatar(
             backgroundImage: AssetImage(

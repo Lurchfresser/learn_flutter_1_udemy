@@ -1,51 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:learn_flutter_1/presentation/quiz/classes/quiz_objects.dart';
 import 'package:learn_flutter_1/presentation/quiz/widgets/question_header.dart';
 
 class QuestionContainer extends StatelessWidget {
   final Question question;
+  final void Function()? onTap;
 
-  const QuestionContainer({super.key, required this.question});
+  const QuestionContainer({super.key, required this.question, this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 200,
-      decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(10)),
-        color: question.questionCategorie.color,
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          children: [
-            QuestionHeader(question: question),
-            const SizedBox(
-              height: 10,
-            ),
-            Text(question.questionText),
-          ],
+    return GestureDetector(
+      onTap: () {
+        onTap?.call();
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
+          color: question.questionCategorie.color,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              QuestionHeader(question: question),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(question.questionText, style: Theme.of(context).textTheme.bodyMedium,),
+            ],
+          ),
         ),
       ),
     );
   }
 }
 
-enum QuestionCategorie {
-  sports(color: Colors.grey, categorieName: "sports"),
-  science(color: Colors.lightBlue, categorieName: "science"),
-  celebreties(color: Colors.pink, categorieName: "celebreties");
 
-  const QuestionCategorie({
-    required this.color,
-    required this.categorieName,
-  });
-
-  final Color color;
-  final String categorieName;
-}
-
-class Question {
-  final String questionText;
-  final QuestionCategorie questionCategorie;
-  Question({required this.questionCategorie, required this.questionText});
-}
