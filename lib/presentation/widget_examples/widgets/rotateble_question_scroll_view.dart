@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter_1/presentation/components/custom_button.dart';
 import 'package:learn_flutter_1/presentation/components/switch_example.dart';
-import 'package:learn_flutter_1/presentation/navigation_example_screens/screen_one.dart';
 import 'package:learn_flutter_1/presentation/navigation_example_screens/screen_two.dart';
 import 'package:learn_flutter_1/presentation/quiz/classes/quiz_objects.dart';
 import 'package:learn_flutter_1/presentation/widget_examples/widgets/buttons_example.dart';
@@ -18,8 +17,11 @@ class RotatebleQuestionScrollView extends StatelessWidget {
       questions.shuffle();
       var children = [
         for (var question in questions)
-          QuestionContainer(
-            question: question,
+          SizedBox(
+            width: 300,
+            child: QuestionContainer(
+              question: question,
+            ),
           ),
         ButtonExample(
           onPressed: (){
@@ -29,8 +31,7 @@ class RotatebleQuestionScrollView extends StatelessWidget {
         ),
         CustomButton(
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const ScreenOne()));
+            Navigator.pushNamed(context, "/screenOne");
           },
         ),
         const SwitchExample(),

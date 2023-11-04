@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter_1/presentation/navigation_example_screens/screen_one.dart';
 
 class ScreenTwo extends StatelessWidget {
   const ScreenTwo({super.key});
@@ -13,7 +12,7 @@ class ScreenTwo extends StatelessWidget {
       ),
       body: Center(
         child: TextButton(child: const Text("Screen One"), onPressed: () {
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const ScreenOne()));
+          Navigator.pushNamed(context, "/screenOne");
         },),
       )
     );

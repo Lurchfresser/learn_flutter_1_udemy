@@ -27,9 +27,6 @@ class CustomButton extends StatelessWidget {
           onTap: () {
             onTap();
           },
-          onLongPress: () {
-            print("long pressed");
-          },
           child: const Center(
             child: Icon(Icons.add),
           ),

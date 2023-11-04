@@ -45,7 +45,6 @@ class _QuizScreenState extends State<QuizScreen> {
             IconButton(
               onPressed: () {
                 if (displayedQuestions.isEmpty) return;
-                print("object");
                 Random random = Random();
                 Navigator.push(
                     context,

@@ -24,7 +24,10 @@ class QuestionContainer extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              QuestionHeader(question: question),
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: QuestionHeader(question: question)
+                ),
               const SizedBox(
                 height: 10,
               ),
