@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learn_flutter_1/bottom_navigation.dart';
 import 'package:learn_flutter_1/presentation/navigation_example_screens/screen_one.dart';
 import 'package:learn_flutter_1/presentation/navigation_example_screens/screen_two.dart';
+import 'package:learn_flutter_1/theme.dart';
 
 void main() {
   runApp(const MainApp());
@@ -13,10 +14,11 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-          appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.amber,
-      )),
+
+      themeMode: ThemeMode.system,
+      theme: AppTheme.lighttheme,
+      darkTheme: AppTheme.darktheme,
+      
       home: const SafeArea(
         child: RootBottomNavigation(),
       ),

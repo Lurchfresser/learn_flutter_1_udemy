@@ -17,7 +17,7 @@ class _ListItemState extends State<ListItem> {
   Widget build(BuildContext context) {
     return Container(
               decoration: BoxDecoration(
-                color: Colors.amber,
+                color: Theme.of(context).colorScheme.secondary,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: ListTile(
