@@ -28,9 +28,9 @@ class _RootBottomNavigationState extends State<RootBottomNavigation> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        unselectedItemColor: Colors.white,
-        backgroundColor: Colors.black,
-        selectedItemColor: Colors.amber,
+        unselectedItemColor: Theme.of(context).colorScheme.onSurface,
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        selectedItemColor: Theme.of(context).colorScheme.primary,
         onTap: (int index) {
           setState(() {
             _currentIndex = index;

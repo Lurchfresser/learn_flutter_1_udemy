@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter_1/presentation/components/custom_button.dart';
+import 'package:learn_flutter_1/presentation/components/dark_mode_switch.dart';
 import 'package:learn_flutter_1/presentation/components/switch_example.dart';
 import 'package:learn_flutter_1/presentation/navigation_example_screens/screen_two.dart';
 import 'package:learn_flutter_1/presentation/quiz/classes/quiz_objects.dart';
@@ -16,6 +17,7 @@ class RotatebleQuestionScrollView extends StatelessWidget {
     return Builder(builder: (context) {
       questions.shuffle();
       var children = [
+        const DarkModeSwitch(),
         for (var question in questions)
           SizedBox(
             width: 300,
