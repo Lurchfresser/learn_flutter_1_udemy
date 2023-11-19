@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learn_flutter_1/presentation/counter/counter_screen.dart';
 import 'package:learn_flutter_1/presentation/list/list_screen.dart';
 import 'package:learn_flutter_1/presentation/quiz/quiz_screen.dart';
+import 'package:learn_flutter_1/presentation/theme_animation/theme_animation_screen.dart';
 import 'package:learn_flutter_1/presentation/widget_examples/widget_examples_screen.dart';
 
 class RootBottomNavigation extends StatefulWidget {
@@ -24,6 +25,7 @@ class _RootBottomNavigationState extends State<RootBottomNavigation> {
           CounterScreen(),
           QuizScreen(),
           WidgetExamplesScreen(),
+          ThemeAnimationScreen(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -42,6 +44,7 @@ class _RootBottomNavigationState extends State<RootBottomNavigation> {
           BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Counter'),
           BottomNavigationBarItem(icon: Icon(Icons.question_answer), label: 'Quiz'),
           BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Example Screen'),
+          BottomNavigationBarItem(icon: Icon(Icons.color_lens), label: 'Theme Animation'),
         ],
       ),
     );
